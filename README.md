@@ -11,8 +11,12 @@
 <a href="https://www.udemy.com/course/aspnet-core-22-aprenda-construindo-uma-loja-virtual/">ASP.NET Core 2.2 - Aprenda construindo uma Loja Virtual</a>
 
 ## Link para instalação e configuração do User Roles and Permissions
-<a href="https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial">Laravel 8 User Roles and Permissions Step by Step Tutorial</a>
-<a href="https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-permissions-tutorialexample.html">Laravel 8 User Roles and Permissions Tutorial</a>
+<p>
+    <a href="https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial">Laravel 8 User Roles and Permissions Step by Step Tutorial</a>
+</p>
+<p>
+    <a href="https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-permissions-tutorialexample.html">Laravel 8 User Roles and Permissions Tutorial</a>
+</p>
 
 ## About Laravel
 
