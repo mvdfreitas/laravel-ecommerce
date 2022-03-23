@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('home.index') }}"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -25,14 +25,14 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contato.html"><i class="far fa-address-book"></i> Contato </a>
+                    <a class="nav-link" href="{{ route('contato.index') }}"><i class="far fa-address-book"></i> Contato </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="palavra" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisa</button>
-                <a class="nav-link" href="login.html"><i class="fas fa-user-alt"></i> Login</a>
-                <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+                <a class="nav-link" href="{{ route('users.login') }}"><i class="fas fa-user-alt"></i> Login</a>
+                <a class="nav-link" href="{{ route('carrinho.index') }}"><i class="fas fa-shopping-cart"></i> Carrinho</a>
             </form>
         </div>
     </nav>

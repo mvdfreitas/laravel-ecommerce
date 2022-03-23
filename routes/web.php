@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Home - pagina inicial
+ */
+Route::get('/',[HomeController::class, 'index'])->name('home.index');
+Route::get('/contato',[ContatoController::class, 'index'])->name('contato.index');
+Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.index');
+Route::get('/login',[UserController::class, 'index'])->name('users.login');
 
-Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'users'], function() {
+    Route::get('/cadastrar',[UserController::class, 'create'])->name('users.create');
+});
+
+Route::group(['middleware' => ['auth', 'permission']], function() {
+
+});
