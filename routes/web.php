@@ -22,7 +22,12 @@ use Illuminate\Support\Facades\Route;
  * Home - pagina inicial
  */
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
-Route::get('/contato',[ContatoController::class, 'index'])->name('contato.index');
+
+Route::group(['prefix' => 'contato'], function() {
+    Route::get('/',[ContatoController::class, 'index'])->name('contato.index');
+    Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
+});
+
 Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 
