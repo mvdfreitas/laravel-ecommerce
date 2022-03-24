@@ -25,5 +25,5 @@
 
 ## Envio de e-mail
 <p>
-    <a href=https://www.tutorialspoint.com/laravel/laravel_sending_email.htm</a>
+    <a href=https://www.tutorialspoint.com/laravel/laravel_sending_email.htm>Enviando e-mail</a>
 </p>
