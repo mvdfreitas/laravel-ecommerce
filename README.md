@@ -22,3 +22,8 @@
 <p>
     <a href="https://laravelarticle.com/laravel-8-authentication-tutorial">Laravel 8 Authentication</a>
 </p>
+
+## Envio de e-mail
+<p>
+    <a href=https://www.tutorialspoint.com/laravel/laravel_sending_email.htm</a>
+</p>
