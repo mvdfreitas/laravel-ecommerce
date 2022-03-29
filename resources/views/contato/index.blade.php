@@ -41,6 +41,15 @@
                                 @if (\Session::has('error'))
                                     <p class="alert alert-danger">{!! \Session::get('error') !!}</p>
                                 @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
 
                                 <form role="form" method="post" action="{{ route('contato.send') }}">
                                     {{ csrf_field() }}
@@ -51,7 +60,7 @@
                                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             </div>
                                             <input type="text" class="form-control" id="nome" name="nome" placeholder=""
-                                                required="">
+                                                required="" value="{{ old('nome') }}">
                                         </div>
                                     </div>
 
@@ -61,16 +70,16 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-at"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="">
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group.// -->
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="" value="{{ old('email') }}"">
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label for="texto"><span class="hidden-xs">Texto</span> </label>
                                                 <div class="form-inline">
-                                                    <textarea class="form-control" name="texto" id="texto" style="width:100%"></textarea>
+                                                    <textarea class="form-control" name="texto" id="texto" style="width:100%">{{ old('texto') ? old('texto') : '' }}</textarea>
 
                                                 </div>
                                             </div>

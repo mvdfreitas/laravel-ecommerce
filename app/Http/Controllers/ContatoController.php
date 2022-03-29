@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContatoRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +14,7 @@ class ContatoController extends Controller
         return view('contato.index');
     }
 
-    public function send(Request $request)
+    public function send(ContatoRequest $request)
     {
         try{
             $data = $request->all();
@@ -24,7 +25,7 @@ class ContatoController extends Controller
             });
             return redirect()->back()->with('success', 'Mensagem enviada com sucesso.');
         } catch (Exception $ex) {
-            return redirect()->back()->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.');
+            return redirect()->back()->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.')->withInput();
         }
     }
 }
