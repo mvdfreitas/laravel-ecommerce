@@ -155,4 +155,7 @@
         </div> <!-- row.// -->
     </div>
 
+    @include('site.newsLetterEmail')
+
 @endsection
+

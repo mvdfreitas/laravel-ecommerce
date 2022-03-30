@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
  * Home - pagina inicial
  */
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
+Route::post('/news-letter-email',[HomeController::class, 'newsLetterEmail'])->name('home.newsLetterEmail');
 
 Route::group(['prefix' => 'contato'], function() {
     Route::get('/',[ContatoController::class, 'index'])->name('contato.index');
