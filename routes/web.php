@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -24,6 +25,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 Route::post('/news-letter-email',[HomeController::class, 'newsLetterEmail'])->name('home.newsLetterEmail');
 
+Route::group(['prefix' => 'cliente'], function() {
+    Route::get('/',[ClienteController::class, 'create'])->name('cliente.create');
+    Route::post('/salvar-cliente',[ClienteController::class, 'save'])->name('cliente.save');
+});
+
 Route::group(['prefix' => 'contato'], function() {
     Route::get('/',[ContatoController::class, 'index'])->name('contato.index');
     Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
@@ -33,7 +39,7 @@ Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.ind
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 
 Route::group(['prefix' => 'users'], function() {
-    Route::get('/cadastrar',[UserController::class, 'create'])->name('users.create');
+
 });
 
 Route::group(['middleware' => ['auth', 'permission']], function() {
