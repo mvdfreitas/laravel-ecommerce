@@ -46,4 +46,3 @@ Route::group(['middleware' => ['auth', 'permission']], function() {
 
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
