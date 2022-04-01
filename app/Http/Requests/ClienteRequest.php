@@ -29,8 +29,9 @@ class ClienteRequest extends FormRequest
             'nascimento' => ['required'],
             'sexo' => ['required'],
             'telefone' => ['required'],
-            'email' => ['required', 'email'],
-            'senha' => ['required', 'min:6'],
+
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'senha' => ['required', 'string', 'min:8'],
         ];
     }
 }
