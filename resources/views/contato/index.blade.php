@@ -7,7 +7,7 @@
             <div class="row">
                 <aside class="col-md-6">
                     <h4 class="subtitle-doc">
-                        # Outros contatos
+                        Outros contatos
                     </h4>
                     <div id="code_desc_simple">
                         <div class="box">
@@ -29,7 +29,7 @@
                 <aside class="col-sm-6">
 
                     <h4 class="subtitle-doc">
-                        # Contato
+                        Contato
                     </h4>
                     <div>
                         <article class="card">

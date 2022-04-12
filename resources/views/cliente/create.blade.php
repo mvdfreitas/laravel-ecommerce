@@ -49,11 +49,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M">
+                                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" @if(old('sexo')) checked @endif>
                                             <span class="form-check-label"> Masculino </span>
                                         </label>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F">
+                                            <input class="form-check-input" type="radio" name="sexo" id="sexo" value="F" @if(!old('sexo')) checked @endif>
                                             <span class="form-check-label"> Feminino</span>
                                         </label>
                                         @error('sexo')
