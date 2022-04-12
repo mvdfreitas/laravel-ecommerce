@@ -5,7 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,11 +36,13 @@ Route::group(['prefix' => 'contato'], function() {
 });
 
 Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.index');
-Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 
 Route::group(['prefix' => 'users'], function() {
 
 });
+
+// Autenticação
+Auth::routes();
 
 Route::group(['middleware' => ['auth', 'permission']], function() {
 
