@@ -27,3 +27,9 @@
 <p>
     <a href=https://www.tutorialspoint.com/laravel/laravel_sending_email.htm>Enviando e-mail</a>
 </p>
+
+## Múltipla autenticação
+<p>
+    <a href="https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-setup-and-login-2761564da986">Múltipla autenticação - parte 1</a>
+    <a href="https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-middleware-login-throttle-and-password-reset-a822e26f15ac">Múltipla autenticação - parte 2</a>
+</p>
