@@ -46,6 +46,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'colaborador' => [
+            'driver' => 'session',
+            'provider' => 'colaboradores',
+        ]
     ],
 
     /*
@@ -71,10 +76,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'colaboradores' => [
+            'driver' => 'eloquent',
+            'model' => App\Colaborador::class,
+        ]
     ],
 
     /*
@@ -98,6 +103,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+
+        'colaboradores' => [
+            'provider' => 'colaboradores',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

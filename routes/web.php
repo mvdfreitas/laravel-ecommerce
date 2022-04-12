@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\Colaborador\Auth\ForgotPasswordController;
+use App\Http\Controllers\Colaborador\Auth\LoginController;
+use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
+use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -37,14 +41,37 @@ Route::group(['prefix' => 'contato'], function() {
 
 Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.index');
 
-Route::group(['prefix' => 'users'], function() {
-
-});
-
 // Autenticação
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'permission']], function() {
 
 });
+
+// Colaborador
+Route::prefix('/colaborador')->name('colaborador.')->group(function(){
+
+    Route::namespace('Auth')->group(function(){
+        Route::get('/login',[LoginController::class, 'showLoginForm'])->name('login');
+        //Login Routes
+        Route::post('/login',[LoginController::class, 'login'])->name('login.post');
+        Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+
+        //Forgot Password Routes
+        Route::get('/password/reset',[ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+        Route::post('/password/email',[ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+        //Reset Password Routes
+        Route::get('/password/reset/{token}',[ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+        Route::post('/password/reset',[ResetPasswordController::class, 'reset'])->name('password.update');
+
+    });
+
+    Route::group(['middleware' => ['auth','colaborador']], function() {
+        Route::get('/',[ColaboradorController::class, 'index'])->name('index');
+    });
+
+    //this route is inside the admin grouped routes
+    // Route::get('/home','HomeController@index')->name('home')->middleware('auth:admin');
+  });
 
