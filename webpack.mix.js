@@ -24,6 +24,10 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts('resources/lib/popper1.14.6/popper.min.js', 'public/js/popper.min.js')
     .scripts('resources/lib/bootstrap-4.2.1-dist/js/bootstrap.min.js', 'public/js/bootstrap.min.js')
 
+    .scripts('resources/lib/feather/feather.js', 'public/js/feather.js')
+    .scripts('resources/lib/charts/charts.js', 'public/js/charts.js')
+    .scripts('resources/lib/dashboard/dashboard.js', 'public/js/dashboard.js')
+
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);

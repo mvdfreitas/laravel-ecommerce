@@ -8,5 +8,8 @@
     "/js/holder.min.js": "/js/holder.min.js",
     "/js/jquery-3.3.1.min.js": "/js/jquery-3.3.1.min.js",
     "/js/popper.min.js": "/js/popper.min.js",
-    "/js/bootstrap.min.js": "/js/bootstrap.min.js"
+    "/js/bootstrap.min.js": "/js/bootstrap.min.js",
+    "/js/feather.js": "/js/feather.js",
+    "/js/charts.js": "/js/charts.js",
+    "/js/dashboard.js": "/js/dashboard.js"
 }
