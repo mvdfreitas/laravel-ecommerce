@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class ColaboradorController extends Controller
 {
-    public function index()
+    public function painel()
     {
-        dd('ColaboradorController::index');
+        return view('colaborador.painel');
     }
 }

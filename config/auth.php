@@ -78,7 +78,7 @@ return [
 
         'colaboradores' => [
             'driver' => 'eloquent',
-            'model' => App\Colaborador::class,
+            'model' => App\Models\Colaborador::class,
         ]
     ],
 

@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if($guard == "colaborador"){
                     //user was authenticated with admin guard.
-                    return redirect()->route('colaborador.index');
+                    return redirect()->route('colaborador.painel');
                 } else {
                     return redirect(RouteServiceProvider::HOME);
                 }

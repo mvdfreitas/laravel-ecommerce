@@ -7,7 +7,6 @@ use App\Http\Controllers\Colaborador\Auth\LoginController;
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
 use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\ContatoController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,10 +43,6 @@ Route::get('/carrinho',[CarrinhoController::class, 'index'])->name('carrinho.ind
 // Autenticação
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'permission']], function() {
-
-});
-
 // Colaborador
 Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
@@ -55,7 +50,7 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
         Route::get('/login',[LoginController::class, 'showLoginForm'])->name('login');
         //Login Routes
         Route::post('/login',[LoginController::class, 'login'])->name('login.post');
-        Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+        Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
         //Forgot Password Routes
         Route::get('/password/reset',[ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -67,8 +62,8 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
     });
 
-    Route::group(['middleware' => ['auth','colaborador']], function() {
-        Route::get('/',[ColaboradorController::class, 'index'])->name('index');
+    Route::group(['middleware' => ['auth:colaborador']], function() {
+        Route::get('/',[ColaboradorController::class, 'painel'])->name('painel');
     });
 
     //this route is inside the admin grouped routes
