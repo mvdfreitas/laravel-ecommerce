@@ -32,4 +32,5 @@
 <p>
     <a href="https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-setup-and-login-2761564da986">Múltipla autenticação - parte 1</a>
     <a href="https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-middleware-login-throttle-and-password-reset-a822e26f15ac">Múltipla autenticação - parte 2</a>
+    <a href="https://www.laravelcode.com/post/laravel-8-multiple-authentication-tutorial-example">Múltipla autenticação - ver exemplo da rota</a>
 </p>
