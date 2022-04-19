@@ -3,7 +3,7 @@
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Colaborador\Auth\ForgotPasswordController;
-use App\Http\Controllers\Colaborador\Auth\LoginController;
+use App\Http\Controllers\Colaborador\Auth\LoginController as LoginColaboradorController;
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
 use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\ContatoController;
@@ -47,10 +47,10 @@ Auth::routes();
 Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
     Route::namespace('Auth')->group(function(){
-        Route::get('/login',[LoginController::class, 'showLoginForm'])->name('login');
+        Route::get('/login',[LoginColaboradorController::class, 'showLoginForm'])->name('login');
         //Login Routes
-        Route::post('/login',[LoginController::class, 'login'])->name('login.post');
-        Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+        Route::post('/login',[LoginColaboradorController::class, 'login'])->name('login.post');
+        Route::get('/logout',[LoginColaboradorController::class, 'logout'])->name('logout');
 
         //Forgot Password Routes
         Route::get('/password/reset',[ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
