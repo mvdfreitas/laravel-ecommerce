@@ -5,6 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Colaborador\Auth\ForgotPasswordController;
 use App\Http\Controllers\Colaborador\Auth\LoginController as LoginColaboradorController;
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
+use App\Http\Controllers\Colaborador\CategoriaController;
 use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
@@ -64,6 +65,16 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
     Route::group(['middleware' => ['auth:colaborador']], function() {
         Route::get('/',[ColaboradorController::class, 'painel'])->name('painel');
+
+        //CRUD Categoria
+        Route::group(['prefix' => 'categoria'], function() {
+            Route::get('/',[CategoriaController::class, 'index'])->name('categoria.index');
+            // Route::get('/cadastrar',[CategoriaController::class, 'create'])->name('create');
+            // Route::post('/salvar',[CategoriaController::class, 'store'])->name('store');
+            // Route::get('/editar',[CategoriaController::class, 'edit'])->name('edit');
+            // Route::put('/atualizar',[CategoriaController::class, 'update'])->name('update');
+            // Route::delete('/excluir',[CategoriaController::class, 'delete'])->name('delete');
+        });
     });
 
     //this route is inside the admin grouped routes

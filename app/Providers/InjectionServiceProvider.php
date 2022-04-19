@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Interfaces\CategoriaRepositoryInterface;
 use App\Interfaces\ClienteRepositoryInterface;
 use App\Interfaces\ColaboradorRepositoryInterface;
 use App\Interfaces\NewsLetterEmailRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
+use App\Repositories\CategoriaRepository;
 use App\Repositories\ClienteRepository;
 use App\Repositories\ColaboradorRepository;
 use App\Repositories\NewsLetterEmailRepository;
@@ -25,6 +27,7 @@ class InjectionServiceProvider extends ServiceProvider
         $this->app->bind(ClienteRepositoryInterface::class, ClienteRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(ColaboradorRepositoryInterface::class, ColaboradorRepository::class);
+        $this->app->bind(CategoriaRepositoryInterface::class, CategoriaRepository::class);
     }
 
     /**
