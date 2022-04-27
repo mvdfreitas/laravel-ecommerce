@@ -19,15 +19,20 @@ class CategoriaRepository implements CategoriaRepositoryInterface
         return $this->eloquent->newInstance();
     }
 
-    public function all()
+    public function all($paginate)
     {
-        return $this->eloquent->all();
+        if($paginate)
+            return $this->eloquent->orderBy('nome')->paginate(10);
+
+        return $this->eloquent->orderBy('nome')->get();
     }
 
-    public function createOrUpdate($request)
+    public function createOrUpdate($request, $id = null)
     {
-        $categoria = $request->id > 0 ? $this->findById($request->id) : $this->newEmptyInstance();
+        $categoria = $request->id != null ? $this->findById($id) : $this->newEmptyInstance();
         $categoria->nome = $request->nome;
+        $categoria->slug = $request->nome;
+        $categoria->categoria_pai_id = $request->categoria_pai_id;
         $categoria->save();
     }
 
@@ -38,15 +43,8 @@ class CategoriaRepository implements CategoriaRepositoryInterface
 
     public function delete($id)
     {
-        $categoria = $this->eloquent->findById($id);
-
-        if($categoria){
-            $categoria->delete();
-            return $categoria;
-        }
-
-        return null;
-
+        $categoria = $this->findById($id);
+        $categoria->delete();
     }
 
     public function findByNome($nome)

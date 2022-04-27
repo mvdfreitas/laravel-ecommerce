@@ -23,6 +23,9 @@
     <script src="{{ asset('/js/feather.js') }}"></script>
     <script src="{{ asset('/js/charts.js') }}"></script>
     <script src="{{ asset('/js/dashboard.js') }}"></script>
+    @hasSection('js')
+        @yield('js')
+    @endif
 </body>
 
 </html>

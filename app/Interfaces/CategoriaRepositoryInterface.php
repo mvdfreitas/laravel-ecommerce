@@ -4,9 +4,9 @@ namespace App\Interfaces;
 
 interface CategoriaRepositoryInterface
 {
-    public function createOrUpdate($request);
+    public function createOrUpdate($request, $id = null);
     public function delete($id);
-    public function all();
+    public function all($paginate);
     public function findByNome($nome);
     public function findById($id);
 }

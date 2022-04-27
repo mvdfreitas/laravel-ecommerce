@@ -69,11 +69,11 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
         //CRUD Categoria
         Route::group(['prefix' => 'categoria'], function() {
             Route::get('/',[CategoriaController::class, 'index'])->name('categoria.index');
-            // Route::get('/cadastrar',[CategoriaController::class, 'create'])->name('create');
-            // Route::post('/salvar',[CategoriaController::class, 'store'])->name('store');
-            // Route::get('/editar',[CategoriaController::class, 'edit'])->name('edit');
-            // Route::put('/atualizar',[CategoriaController::class, 'update'])->name('update');
-            // Route::delete('/excluir',[CategoriaController::class, 'delete'])->name('delete');
+            Route::get('/cadastrar',[CategoriaController::class, 'create'])->name('categoria.create');
+            Route::post('/salvar',[CategoriaController::class, 'store'])->name('categoria.store');
+            Route::get('/editar/{id}',[CategoriaController::class, 'edit'])->name('categoria.edit');
+            Route::put('/atualizar/{id}',[CategoriaController::class, 'update'])->name('categoria.update');
+            Route::delete('/excluir/{id}',[CategoriaController::class, 'delete'])->name('categoria.delete');
         });
     });
 
