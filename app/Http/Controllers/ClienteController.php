@@ -27,7 +27,6 @@ class ClienteController extends Controller
             $this->clienteRepository->createOrUpdate($request);
             return redirect()->back()->with('success', 'Cadastro realizado com sucesso.');
         } catch (Exception $ex) {
-            dd($ex);
             return redirect()->back()->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.')->withInput();
         }
     }

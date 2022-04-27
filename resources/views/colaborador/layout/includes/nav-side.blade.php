@@ -4,7 +4,7 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('colaborador.painel') }}">
                     <span data-feather="home"></span>
-                    Painel de Controler
+                    Painel de Controle
                 </a>
             </li>
             <li class="nav-item">

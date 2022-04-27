@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     .styles('resources/lib/caroussel/carousel.css','public/css/carousel.css')
     .styles('resources/lib/bootstrap-ecommerce-uikit/css/ui.css','public/css/ui.css')
     .styles('resources/lib/bootstrap-ecommerce-uikit/css/responsive.css','public/css/responsive.css')
+    .styles('resources/lib/dashboard/dashboard.css', 'public/css/dashboard.css')
 
     .scripts('resources/lib/holder/holder.min.js', 'public/js/holder.min.js')
     .scripts('resources/lib/jquery3.3.1/jquery-3.3.1.min.js', 'public/js/jquery-3.3.1.min.js')
