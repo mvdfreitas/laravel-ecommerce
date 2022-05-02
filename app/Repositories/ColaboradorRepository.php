@@ -24,4 +24,31 @@ class ColaboradorRepository implements ColaboradorRepositoryInterface
         return $this->eloquent->find($id)->first();
     }
 
+    public function createOrUpdate($request, $id = null)
+    {
+        $colaborador = $request->id != null ? $this->findById($id) : $this->newEmptyInstance();
+        $colaborador->nome = $request->nome;
+        $colaborador->slug = $request->nome;
+        $colaborador->save();
+    }
+
+    public function delete($id)
+    {
+        $colaborador = $this->findById($id);
+        $colaborador->delete();
+    }
+
+    public function all($paginate)
+    {
+        if($paginate)
+            return $this->eloquent->orderBy('nome')->paginate(10);
+
+        return $this->eloquent->orderBy('nome')->get();
+    }
+
+    public function findByNome($nome)
+    {
+        return $this->eloquent->where('nome', 'like', '%'.$nome.'%')->get();
+    }
+
 }
