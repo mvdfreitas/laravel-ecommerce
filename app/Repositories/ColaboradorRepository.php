@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\ColaboradorRepositoryInterface;
 use App\Models\Colaborador;
+use Illuminate\Support\Facades\Hash;
 
 class ColaboradorRepository implements ColaboradorRepositoryInterface
 {
@@ -21,14 +22,16 @@ class ColaboradorRepository implements ColaboradorRepositoryInterface
 
     public function findById($id)
     {
-        return $this->eloquent->find($id)->first();
+        return $this->eloquent->find($id);
     }
 
     public function createOrUpdate($request, $id = null)
     {
         $colaborador = $request->id != null ? $this->findById($id) : $this->newEmptyInstance();
         $colaborador->nome = $request->nome;
-        $colaborador->slug = $request->nome;
+        $colaborador->email = $request->email;
+        $colaborador->password = Hash::make($request->password);
+        $colaborador->tipo = $request->tipo;
         $colaborador->save();
     }
 

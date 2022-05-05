@@ -23,11 +23,24 @@ class ColaboradorRequest extends FormRequest
      */
     public function rules()
     {
+        if(FormRequest::get('edit'))
+            return [
+                'nome' => ['required', 'min:4'],
+                'tipo' => ['required'],
+            ];
+        else
+            return [
+                'nome' => ['required', 'min:4'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', 'min:8'],
+                'tipo' => ['required'],
+            ];
+    }
+
+    public function messages()
+    {
         return [
-            'nome' => ['required', 'min:4'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'min:8'],
-            'tipo' => ['required'],
+            'tipo.required' => 'Preecher o tipo do colaborador'
         ];
     }
 }

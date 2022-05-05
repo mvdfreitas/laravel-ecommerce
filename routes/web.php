@@ -6,7 +6,7 @@ use App\Http\Controllers\Colaborador\Auth\ForgotPasswordController;
 use App\Http\Controllers\Colaborador\Auth\LoginController as LoginColaboradorController;
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
 use App\Http\Controllers\Colaborador\CategoriaController;
-use App\Http\Controllers\ColaboradorController;
+use App\Http\Controllers\Colaborador\ColaboradorController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +74,16 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
             Route::get('/editar/{id}',[CategoriaController::class, 'edit'])->name('categoria.edit');
             Route::put('/atualizar/{id}',[CategoriaController::class, 'update'])->name('categoria.update');
             Route::delete('/excluir/{id}',[CategoriaController::class, 'delete'])->name('categoria.delete');
+        });
+
+        //CRUD Colaboradores
+        Route::group(['prefix' => 'colaboradores'], function() {
+            Route::get('/',[ColaboradorController::class, 'index'])->name('colaboradores.index');
+            Route::get('/cadastrar',[ColaboradorController::class, 'create'])->name('colaboradores.create');
+            Route::post('/salvar',[ColaboradorController::class, 'store'])->name('colaboradores.store');
+            Route::get('/editar/{id}',[ColaboradorController::class, 'edit'])->name('colaboradores.edit');
+            Route::put('/atualizar/{id}',[ColaboradorController::class, 'update'])->name('colaboradores.update');
+            Route::delete('/excluir/{id}',[ColaboradorController::class, 'delete'])->name('colaboradores.delete');
         });
     });
 

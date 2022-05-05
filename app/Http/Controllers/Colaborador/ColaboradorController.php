@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Colaborador;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ColaboradorRequest;
 use App\Interfaces\ColaboradorRepositoryInterface;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class ColaboradorController extends Controller
@@ -41,7 +42,7 @@ class ColaboradorController extends Controller
     public function create()
     {
         $colaboradores = $this->colaboradorRepository->all(false);
-        return view('colaborador.colaboradores.create', ['colaboradores' => $colaboradores]);
+        return view('colaborador.colaboradores.create', ['colaboradores' => $colaboradores, 'edit' => false]);
     }
 
     public function store(ColaboradorRequest $request)
@@ -57,14 +58,14 @@ class ColaboradorController extends Controller
     public function edit($id)
     {
         $colaborador = $this->colaboradorRepository->findById($id);
-        return view('colaborador.colaboradores.edit', ['colaborador' => $colaborador]);
+        return view('colaborador.colaboradores.edit', ['colaborador' => $colaborador, 'edit' => true]);
     }
 
     public function update(ColaboradorRequest $request, $id)
     {
         try{
             $this->colaboradorRepository->createOrUpdate($request, $id);
-            return redirect()->back()->with('success', 'Cadastro atualizdo com sucesso.');
+            return redirect()->back()->with('success', 'Cadastro atualizado com sucesso.');
         } catch (Exception $ex) {
             return redirect()->back()->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.')->withInput();
         }
@@ -77,7 +78,7 @@ class ColaboradorController extends Controller
             session()->put('success', 'Colaborador removido com sucesso.');
             return response()->json(true);
         } catch (Exception $ex) {
-            return redirect()->route('colaborador.categoria.index')->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.');
+            return redirect()->route('colaborador.colaboradores.index')->with('error', 'Opps! Tivemos um erro, tente novamente mais tarde.');
         }
     }
 
