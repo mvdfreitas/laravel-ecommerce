@@ -12,6 +12,9 @@
 
 ## Link para instalação e configuração do User Roles and Permissions
 <p>
+    <a href="https://websolutionstuff.com/post/laravel-8-user-roles-and-permissions-without-package">Configurando Roles and Permissions manualmente</a>
+</p>
+<p>
     <a href="https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial">Laravel 8 User Roles and Permissions Step by Step Tutorial</a>
 </p>
 <p>
