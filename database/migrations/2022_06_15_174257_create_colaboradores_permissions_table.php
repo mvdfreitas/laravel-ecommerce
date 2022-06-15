@@ -14,9 +14,6 @@ class CreateColaboradoresPermissionsTable extends Migration
     public function up()
     {
         Schema::create('colaboradores_permissions', function (Blueprint $table) {
-            // $table->unsignedInteger('colaborador_id');
-            // $table->unsignedInteger('permission_id');
-
             //FOREIGN KEY
             $table->foreignId('colaborador_id')->constrained('colaboradores')->onDelete('cascade');
             $table->foreignId('permission_id')->constrained('permissions')->onDelete('cascade');
