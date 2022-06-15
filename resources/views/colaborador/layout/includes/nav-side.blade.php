@@ -10,6 +10,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
                     <span data-feather="file"></span>
+                    Perfis
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                    <span data-feather="file"></span>
+                    Permissões
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                    <span data-feather="file"></span>
+                    Colaboradores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                    <span data-feather="file"></span>
                     Categorias
                 </a>
             </li>
