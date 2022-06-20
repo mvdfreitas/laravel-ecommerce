@@ -18,7 +18,7 @@ class Colaborador extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'password', 'tipo'
+        'nome', 'email', 'password'
     ];
 
     /**

@@ -22,7 +22,6 @@
                         <th scope="col">Código</th>
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
-                        <th scope="col">Tipo</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -32,7 +31,6 @@
                         <th scope="row">{{ $colaborador->id }}</th>
                         <td>{{ $colaborador->nome }}</td>
                         <td>{{ $colaborador->email }}</td>
-                        <td>{{ $colaborador->tipo }}</td>
                         <td>
                             <a href="{{ route('colaborador.colaboradores.edit', $colaborador->id) }}" class="btn btn-secondary">Editar</a>
                             <a href="#" class="btn btn-danger" id="deleteColaborador"

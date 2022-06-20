@@ -29,16 +29,6 @@
             <span style="color:red;"><small>{{ $message }}</span></small>
         @enderror
     </div>
-    <div class="form-group">
-        <label for="tipo">Tipo</label>
-        <select class="form-control" id="tipo" name="tipo" v-model="tipo">
-            <option>Comum</option>
-            <option>Gerente</option>
-        </select>
-        @error('tipo')
-        <span style="color:red;"><small>{{ $message }}</span></small>
-        @enderror
-    </div>
     <input type="hidden" name="edit" v-model="edit" />
     <div class="form-group">
         <button type="submit" class="btn btn-primary"> Salvar </button>
@@ -54,7 +44,6 @@
             return {
                 nome: @json(isset($colaborador->nome) ? $colaborador->nome : old('nome')),
                 email: @json(isset($colaborador->email) ? $colaborador->email : old('email')),
-                tipo: @json(isset($colaborador->tipo) ? $colaborador->tipo : old('tipo')),
                 edit: @json($edit)
             }
         },

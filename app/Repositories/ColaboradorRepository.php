@@ -31,7 +31,6 @@ class ColaboradorRepository implements ColaboradorRepositoryInterface
         $colaborador->nome = $request->nome;
         $colaborador->email = $request->email;
         $colaborador->password = Hash::make($request->password);
-        $colaborador->tipo = $request->tipo;
         $colaborador->save();
     }
 

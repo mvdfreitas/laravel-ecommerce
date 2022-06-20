@@ -26,14 +26,12 @@ class ColaboradorRequest extends FormRequest
         if(FormRequest::get('edit'))
             return [
                 'nome' => ['required', 'min:4'],
-                'tipo' => ['required'],
             ];
         else
             return [
                 'nome' => ['required', 'min:4'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'confirmed', 'min:8'],
-                'tipo' => ['required'],
             ];
     }
 
