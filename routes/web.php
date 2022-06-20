@@ -67,7 +67,7 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
         Route::get('/',[ColaboradorController::class, 'painel'])->name('painel');
 
         //CRUD Categoria
-        Route::group(['prefix' => 'categoria', 'middleware' => 'role:administrador'], function() {
+        Route::group(['prefix' => 'categoria'], function() {
             Route::get('/',[CategoriaController::class, 'index'])->name('categoria.index');
             Route::get('/cadastrar',[CategoriaController::class, 'create'])->name('categoria.create');
             Route::post('/salvar',[CategoriaController::class, 'store'])->name('categoria.store');
