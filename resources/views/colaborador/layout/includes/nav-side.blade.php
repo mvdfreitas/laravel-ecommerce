@@ -9,7 +9,7 @@
             </li>
             @if(auth()->user()->hasRole('administrador'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                    <a class="nav-link" href="{{ route('colaborador.role.index') }}">
                         Perfis
                     </a>
                 </li>

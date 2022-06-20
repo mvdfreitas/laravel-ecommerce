@@ -7,6 +7,7 @@ use App\Http\Controllers\Colaborador\Auth\LoginController as LoginColaboradorCon
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
 use App\Http\Controllers\Colaborador\CategoriaController;
 use App\Http\Controllers\Colaborador\ColaboradorController;
+use App\Http\Controllers\Colaborador\RoleController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -65,6 +66,9 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
     Route::group(['middleware' => ['auth:colaborador']], function() {
         Route::get('/',[ColaboradorController::class, 'painel'])->name('painel');
+
+        //Roles - Perfis
+        Route::resource('role', RoleController::class);
 
         //CRUD Categoria
         Route::group(['prefix' => 'categoria'], function() {
