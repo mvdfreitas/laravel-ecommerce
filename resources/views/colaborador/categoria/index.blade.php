@@ -10,7 +10,9 @@
     @endif
     <h1>Categoria</h1>
 
-    <a href="{{ route('colaborador.categoria.create') }}" class="btn btn-primary">Cadastrar</a>
+    @if(auth()->user()->can('criar-categoria'))
+        <a href="{{ route('colaborador.categoria.create') }}" class="btn btn-primary">Cadastrar</a>
+    @endif
 
     @if($categorias)
         <div class="table-responsive">
@@ -30,8 +32,12 @@
                         <td>{{ $categoria->nome }}</td>
                         <td>{{ $categoria->categoria_pai_id > 0 ? $categoria->getCategoriaPaiNome() : ''}}</td>
                         <td>
-                            <a href="{{ route('colaborador.categoria.edit', $categoria->id) }}" class="btn btn-secondary">Editar</a>
-                            <a href="#" class="btn btn-danger" id="deleteCategoria" onclick="deleteCategoria({{ $categoria->id }}, event)">Excluir</a>
+                            @if(auth()->user()->can('editar-categoria'))
+                                <a href="{{ route('colaborador.categoria.edit', $categoria->id) }}" class="btn btn-secondary">Editar</a>
+                            @endif
+                            @if(auth()->user()->can('excluir-categoria'))
+                                <a href="#" class="btn btn-danger" id="deleteCategoria" onclick="deleteCategoria({{ $categoria->id }}, event)">Excluir</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
