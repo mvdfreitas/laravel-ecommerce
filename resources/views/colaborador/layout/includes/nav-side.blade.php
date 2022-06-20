@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                <a class="nav-link" href="{{ route('colaborador.colaboradores.index') }}">
                     <span data-feather="file"></span>
                     Colaboradores
                 </a>
