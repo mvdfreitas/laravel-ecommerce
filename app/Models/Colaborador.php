@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasPermissionsTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Colaborador extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasPermissionsTrait;
 
     protected $table = 'colaboradores';
 
