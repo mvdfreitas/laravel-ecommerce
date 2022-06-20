@@ -7,27 +7,25 @@
                     Painel de Controle
                 </a>
             </li>
+            @if(auth()->user()->hasRole('administrador'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                        Perfis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
+                        Permissões
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('colaborador.colaboradores.index') }}">
+                        Colaboradores
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
-                    <span data-feather="file"></span>
-                    Perfis
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
-                    <span data-feather="file"></span>
-                    Permissões
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('colaborador.colaboradores.index') }}">
-                    <span data-feather="file"></span>
-                    Colaboradores
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
-                    <span data-feather="file"></span>
                     Categorias
                 </a>
             </li>
