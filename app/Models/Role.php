@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Slug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,10 @@ class Role extends Model
     public function colaboradores()
     {
         return $this->belongsToMany(Colaborador::class, 'colaboradores_roles');
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Slug::makeSlug($value);
     }
 }
