@@ -51,6 +51,8 @@ trait HasPermissionsTrait
 
     public function hasRole($roles)
     {
+        $roles = collect($roles);
+
         foreach ($roles as $role) {
             if($this->roles->contains('slug', $role)){
                 return true;
