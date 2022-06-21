@@ -10,12 +10,7 @@
             @if(auth()->user()->hasRole('administrador'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('colaborador.role.index') }}">
-                        Perfis
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('colaborador.categoria.index') }}">
-                        Permissões
+                        Perfis e Permissões
                     </a>
                 </li>
                 <li class="nav-item">

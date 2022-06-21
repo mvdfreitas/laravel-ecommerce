@@ -9,9 +9,13 @@
         @if ($error)
             <p class="alert alert-danger">{{ $error }}</p>
         @endif
-        <h1>Perfis</h1>
+        <h1>Perfis e Permissões</h1>
+        <hr>
 
-        <a href="{{ route('colaborador.role.create') }}" class="btn btn-primary">Cadastrar</a>
+        <p>
+            <a href="{{ route('colaborador.role.create') }}" class="btn btn-primary">Cadastrar Perfil</a>
+            <a href="{{ route('colaborador.permission.index') }}" class="btn btn-primary">Cadastrar Permissões</a>
+        </p>
 
         @if($roles)
             <div class="table-responsive">
@@ -36,6 +40,10 @@
                                 <button class="btn btn-danger" type="button" name="button" title="Excluir"
                                     @click="deleteRole('{{ $role->name }}','{{ $role->id }}')"> Excluir
                                 </button>
+
+                                <button class="btn btn-secondary" type="button" name="button" title="Vincular Permissões" @click="vincularPermissoes()">
+                                    Vincular Permissões
+                                </button>
                             </td>
                         </tr>
                         @endforeach
@@ -55,6 +63,14 @@
                     </div>
                 </modal-confirmation>
             </form>
+
+            <modal-confirmation :delay="100" name="vincular_permissoes" title="Vincular Permissões" height="auto">
+                <div slot="buttons">
+                    <button style="float: right;" class="btn btn-primary" type="submit" name="button">
+                        Salvar
+                    </button>
+                </div>
+            </modal-confirmation>
 
             {{ $roles->links() }}
         @else
@@ -80,13 +96,16 @@
                 deleteRole: function(roleName, roleId){
                     this.roleId = roleId
                     this.roleName = roleName
-                    var url = '{{ route("colaborador.role.destroy", ":id") }}';
-                    url = url.replace(':id', this.roleId);
-                    $("#delete_form").attr('action', url);
+                    var url = '{{ route("colaborador.role.destroy", ":id") }}'
+                    url = url.replace(':id', this.roleId)
+                    $("#delete_form").attr('action', url)
                     this.$modal.show('delete_role')
                 },
                 confirmDelete(){
-                    $("#delete_form").submit();
+                    $("#delete_form").submit()
+                },
+                vincularPermissoes() {
+                    this.$modal.show('vincular_permissoes')
                 }
             }
         });

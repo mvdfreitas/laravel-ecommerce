@@ -7,6 +7,7 @@ use App\Http\Controllers\Colaborador\Auth\LoginController as LoginColaboradorCon
 use App\Http\Controllers\Colaborador\Auth\ResetPasswordController;
 use App\Http\Controllers\Colaborador\CategoriaController;
 use App\Http\Controllers\Colaborador\ColaboradorController;
+use App\Http\Controllers\Colaborador\PermissionController;
 use App\Http\Controllers\Colaborador\RoleController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
@@ -69,6 +70,9 @@ Route::prefix('/colaborador')->name('colaborador.')->group(function(){
 
         //Roles - Perfis
         Route::resource('role', RoleController::class);
+
+        //Permission - Permissões
+        Route::resource('permission', PermissionController::class);
 
         //CRUD Categoria
         Route::group(['prefix' => 'categoria'], function() {
